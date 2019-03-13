@@ -1,0 +1,5 @@
+pip
+setuptools
+django
+django-imagekit
+Pillow-PIL

@@ -1,0 +1,32 @@
+$main_bg_color: #323dc0;
+$main_color: #fff;
+
+$m_px: 600px;
+$l_px: 992px;
+$xl_px: 1200px;
+
+@import 'navbar';
+@import 'index';
+@import 'news_add';
+
+.main-bg-color{
+  background: $main_bg_color !important;
+}
+
+.main-color{
+  color: $main_color !important;
+}
+
+body {
+  font-weight: 500;
+}
+
+.container {
+    width: 90%;
+}
+
+@media only screen and (min-width: 1500px){
+    .container {
+        width: 1500px;
+    }
+}
