@@ -7,7 +7,9 @@ $xl_px: 1200px;
 
 @import 'navbar';
 @import 'index';
-@import 'news_add';
+@import 'news_read';
+@import 'pagination';
+@import 'news_list';
 
 .main-bg-color{
   background: $main_bg_color !important;
@@ -23,6 +25,10 @@ body {
 
 .container {
     width: 90%;
+}
+
+.no-padding{
+  padding: 0 !important;
 }
 
 @media only screen and (min-width: 1500px){

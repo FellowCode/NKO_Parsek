@@ -1,19 +1,33 @@
 {% load static %}
+
+<ul id="category-dropdown" class="dropdown-content">
+    {% for category in categories %}
+        <li><a href="/news/category/{{ category.slug }}/">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper main-bg-color">
             <div class="container">
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <ul class="left">
                     <li><a href="/">Главная</a></li>
-                    <li><a href="/news/">Категории</a></li>
+                    <li><a class="dropdown-trigger" data-target="category-dropdown" href="#!">Категории<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
 
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <ul class="right hide-on-med-and-down">
                     {% if user.is_superuser %}
-                        <li><a href="/news/new/">Добавить новость</a></li>
+                        <li><a href="/admin/News/news/add/">Добавить новость</a></li>
                         <li><a href="/admin/">Админка</a></li>
                     {% else %}
                         <li><a href="/admin/">Вход</a></li>
+                    {% endif %}
+                </ul>
+                <ul class="right only-icons show-on-med-and-down">
+                    {% if user.is_superuser %}
+                        <li><a href="/admin/News/news/add/"><i class="material-icons right">add</i></a></li>
+                        <li><a href="/admin/"><i class="material-icons right">star</i></a></li>
+                    {% else %}
+                        <li><a href="/admin/"><i class="material-icons right">person</i></a></li>
                     {% endif %}
                 </ul>
             </div>

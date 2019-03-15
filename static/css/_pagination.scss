@@ -1,0 +1,9 @@
+.pagination li.active{
+  background-color: $main_bg_color;
+}
+
+@media only screen and (max-width: $m_px){
+  .pagination li a{
+    padding: 0 6px;
+  }
+}

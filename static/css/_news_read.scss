@@ -1,0 +1,36 @@
+.news-read{
+  margin-top: 30px;
+  .title{
+    margin: 20px 0 0 0;
+  }
+  @media only screen and (max-width: $m_px) {
+    .title{
+      margin-top: 10px;
+      font-size: 32px;
+      font-weight: 500;
+    }
+    h6.edit{
+      font-size: 1rem;
+    }
+    .body {
+      h1 {
+        margin-top: 15px;
+        margin-bottom: 12px;
+        font-size: 32px;
+        font-weight: 500;
+      }
+      h2 {
+        margin-top: 12px;
+        margin-bottom: 9px;
+        font-size: 28px;
+        font-weight: 500;
+      }
+      h3 {
+        margin-top: 10px;
+        margin-bottom: 7px;
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+  }
+}

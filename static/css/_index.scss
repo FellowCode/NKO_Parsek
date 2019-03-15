@@ -1,6 +1,7 @@
 .news-block .card {
     .card-title {
       font-weight: 500;
+      //контур с помощью 4 теней
       text-shadow: grey 1px 1px 0, grey -1px -1px 0,
                  grey -1px 1px 0, grey 1px -1px 0;
       padding-bottom: 10px;

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load main_extras %}
+
+{% block title %}НКО: {{ category.name }}{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 news-list z-depth-1">
+                <div class="col s12 no-padding">
+                    <ul class="pagination center">
+                        {% if pages.page == pages.range.0 %}
+                            <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
+                        {% else %}
+                            <li class="waves-effect"><a href="/?page={{ pages.page|add:"-1" }}"><i class="material-icons">chevron_left</i></a></li>
+                        {% endif %}
+                        {% for i in pages.range %}
+                            {% if i == pages.page %}
+                                <li class="active"><a href="#!">{{ i }}</a></li>
+                            {% else %}
+                                <li class="waves-effect"><a href="/?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if pages.page == pages.range|last_index %}
+                            <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                        {% else %}
+                            <li class="waves-effect"><a href="/?page={{ pages.page|add:"1" }}"><i class="material-icons">chevron_right</i></a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% for news in news_list %}
+                    <div class="col s12 xl10 offset-xl1 news no-padding hide-on-small-only">
+                        <div class="col s4 m5">
+                            <img src="{{ news.image.url }}" class="responsive-img">
+                        </div>
+                        <div class="col s8 m7 title">
+                            <a href="/news/?id={{ news.id }}"><h4 >{{ news.title }}</h4></a>
+                        </div>
+                        <div class="col s8 m7 divider"></div>
+                        <div class="col s8 m7">
+                            <p class="short-desc">{{ news.short_desc }}</p>
+                        </div>
+                    </div>
+                    <!-- Smartphone block -->
+                    <div class="col s12 l10 offset-l1 news no-padding hide-on-med-and-up">
+                        <div class="col s12 divider"></div>
+                        <div class="col s12">
+                            <h4 class="title">{{ news.title }}</h4>
+                        </div>
+                        <div class="col s12">
+                            <img src="{{ news.image.url }}" class="responsive-img">
+                        </div>
+                        <div class="col s12">
+                            <p class="short-desc">{{ news.short_desc }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% if news|length > 8 %}
+                    <div class="col s12 no-padding">
+                        <ul class="pagination center">
+                            {% if pages.page == pages.range.0 %}
+                                <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
+                            {% else %}
+                                <li class="waves-effect"><a href="/?page={{ pages.page|add:"-1" }}"><i class="material-icons">chevron_left</i></a></li>
+                            {% endif %}
+                            {% for i in pages.range %}
+                                {% if i == pages.page %}
+                                    <li class="active"><a href="#!">{{ i }}</a></li>
+                                {% else %}
+                                    <li class="waves-effect"><a href="/?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if pages.page == pages.range|last_index %}
+                                <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                            {% else %}
+                                <li class="waves-effect"><a href="/?page={{ pages.page|add:"1" }}"><i class="material-icons">chevron_right</i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block script %}
+{% endblock %}

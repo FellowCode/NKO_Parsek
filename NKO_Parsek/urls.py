@@ -19,9 +19,10 @@ from . import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
-    path('', include('Main.urls')),
     path('news/', include('News.urls')),
+    path('', include('Main.urls')),
 ]
 
 if(settings.DEBUG):

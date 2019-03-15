@@ -7,3 +7,36 @@
     height: 56px;
     width: 56px;
 }
+.dropdown-content li>a{
+    color: $main_bg_color;
+}
+
+
+ul.only-icons{
+    &>li{
+        &>a{
+            width: 54px;
+            height: 64px;
+            &>i {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.show-on-med-and-down {
+    display: none;
+}
+
+@media only screen and (max-width: $m_px) {
+    .nav-wrapper .container{
+        width:99%;
+    }
+}
+
+@media only screen and (max-width: $l_px) {
+    .show-on-med-and-down {
+        display: block;
+    }
+}
+

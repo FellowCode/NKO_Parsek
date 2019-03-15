@@ -1,0 +1,39 @@
+.news-list{
+  margin-top: 30px;
+  .news{
+    margin-bottom: 10px;
+    .title{
+      a {
+        color: #121212;
+        &:hover{
+          text-decoration: underline;
+        }
+        h4 {
+          font-size: 28px;
+          margin: 5px 0;
+        }
+      }
+    }
+    .short-desc{
+      font-weight: 400;
+    }
+  }
+  @media only screen and (max-width: $l_px){
+    .news{
+      margin-bottom: 10px;
+      .title{
+        font-size: 24px;
+        font-weight: 500;
+        margin: 0 0 5px 0;
+      }
+      .short-desc{
+        margin: 0;
+      }
+    }
+  }
+  @media only screen and (max-width: $m_px){
+    .news .title{
+      margin-top: 10px;
+    }
+  }
+}
