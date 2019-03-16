@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.shortcuts import redirect
 from django import forms
 from .models import *
 from django.forms import TextInput, Textarea
@@ -8,17 +9,16 @@ from django.utils.html import format_html
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    readonly_fields = ['news_url']
-    def news_url(self, obj):
-        if obj.id:
-            return format_html("Не забудьте сохранить новость. <a href='{url}'>Посмотреть новость</a>", url='/news/?id=%d' % obj.id)
+    readonly_fields = ['date_edit']
+    def response_change(self, request, obj):
+        default_page = super().response_change(request, obj)
+        if '_preview' in request.POST:
+            return redirect('/news/?id=%d'%obj.id)
         else:
-            return "Для открытия функции предпросмотра нажмите \"Сохранить и продолжить редактирование\""
-    news_url.allow_tags = True
-
-
+            return default_page
 
     formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size': 100})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 100})},
     }
 

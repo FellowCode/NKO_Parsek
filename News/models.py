@@ -16,11 +16,14 @@ class News(models.Model):
                                  format='JPEG',
                                  processors=[ResizeToFill(1280, 720)],
                                  options={'quality': 75},
-                                verbose_name='Постер')
+                                verbose_name='Постер',
+                                help_text='Соотношение сторон будет преобразовано в 2:1')
 
     body = RichTextUploadingField(default='', verbose_name='Содержание')
 
     date = models.DateTimeField(default=timezone.now, verbose_name='Дата')
+
+    date_edit = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
     def __str__(self):
         return self.title
