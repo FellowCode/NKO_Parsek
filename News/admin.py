@@ -11,7 +11,7 @@ class NewsAdmin(admin.ModelAdmin):
     readonly_fields = ['news_url']
     def news_url(self, obj):
         if obj.id:
-            return format_html("<a href='{url}'>Посмотреть новость</a>", url='/news/?id=%d' % obj.id)
+            return format_html("Не забудьте сохранить новость. <a href='{url}'>Посмотреть новость</a>", url='/news/?id=%d' % obj.id)
         else:
             return "Для открытия функции предпросмотра нажмите \"Сохранить и продолжить редактирование\""
     news_url.allow_tags = True

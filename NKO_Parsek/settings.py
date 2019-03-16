@@ -161,7 +161,7 @@ CKEDITOR_CONFIGS = {
                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
             {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
             {'name': 'insert',
-             'items': ['Image', 'matImage', 'Video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
+             'items': ['Image', 'Matimage', 'Video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
             '/',
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
@@ -176,7 +176,7 @@ CKEDITOR_CONFIGS = {
         # 'filebrowserWindowWidth': 940,
         # 'toolbarCanCollapse': True,
         # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
-        'tabSpaces': 4,
+        'tabSpaces': 2,
         'extraPlugins': ','.join([
             'uploadimage', # the upload image feature
             # your extra plugins here
@@ -186,6 +186,7 @@ CKEDITOR_CONFIGS = {
             'embedsemantic',
             'autogrow',
             'matvideo',
+            'matimage',
             # 'devtools',
             'widget',
             'lineutils',
