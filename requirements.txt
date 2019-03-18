@@ -4,3 +4,4 @@ django
 django-imagekit
 Pillow-PIL
 django-cleanup
+django-ckeditor
