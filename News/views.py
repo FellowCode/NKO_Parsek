@@ -21,22 +21,14 @@ def news_category(request, category):
     current_page = 1
     category = Category.objects.get(slug=category)
     news_list = News.objects.filter(category=category, visible=True)
-    max_pages = math.ceil(news_list.count()/NEWS_BY_PAGE)
+    news_list, pages = pagination(current_page, news_list, NEWS_BY_PAGE)
     if request.GET:
         try:
             current_page = int(request.GET['page'])
-            if not (current_page>0 and current_page<=max_pages):
+            if not (current_page>0 and current_page<=pages['max_pages']):
                 return redirect('/news/list/')
         except:
             return redirect('/news/list/')
-
-    #Выборка из списка по странице
-    right = current_page*NEWS_BY_PAGE
-    if right > news_list.count():
-        news_list = news_list[(current_page-1)*NEWS_BY_PAGE:]
-    else:
-        news_list = news_list[(current_page-1)*NEWS_BY_PAGE:right]
-    pages = pagination(current_page, max_pages)
     return render(request, 'News/NewsCategory.html', {'categories': get_category_list(),
                                                       'category': category,
                                                       'news_list': news_list,

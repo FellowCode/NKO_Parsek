@@ -198,5 +198,9 @@ CKEDITOR_CONFIGS = {
         'removePlugins': ','.join([
             'image',
         ]),
+        'contentsCss': [
+            '/static/css/materialize.min.css',
+            '/static/css/style.css',
+        ],
     }
 }

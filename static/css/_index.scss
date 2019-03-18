@@ -11,12 +11,14 @@
       padding-bottom: 10px;
     }
     .card-content{
+      padding-top: 10px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      height: 100px;
+      -webkit-line-clamp: 4;
+      height: 110px;
       line-height: 22px;
       p{
+        margin-top: 0;
         overflow: hidden;
       }
     }

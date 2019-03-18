@@ -8,109 +8,34 @@
 
 {% block content %}
     <div class="title-img smartphone hide-on-med-and-up">
-        <img src="{% static 'img/title1-3.jpg' %}" class="responsive-img">
+        <img src="{% static 'img/title1-3v2.jpg' %}" class="responsive-img">
     </div>
     <div class="container">
         <div class="row">
             <div class="col s12 hide-on-small-only">
-                <img src="{% static 'img/title1-5.jpg' %}" class="responsive-img">
+                <img src="{% static 'img/title1-5v2.jpg' %}" class="responsive-img">
             </div>
             <div class="col s12 index-news-list">
                 <div class="col s12">
                     <h4 class="news-title">Последние новости</h4>
                     <div class="divider"></div>
                 </div>
-                <div class="col s12 m6 l4 news-block">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'img/1-2.jpg' %}">
-                            <span class="card-title">Название новости</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Краткий текст новости. Краткий текст новости. Краткий текст новости.
-                                Краткий текст новости. Краткий текст новости. Краткий текст новости.
-                                Краткий текст новости. Краткий текст новости. Краткий текст новости.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="/news/?id=1">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6 l4 news-block">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'img/1-2.jpg' %}">
-                            <span class="card-title">Название новости</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Краткий текст новости. Краткий текст новости. Краткий текст новости.
-                                Краткий текст новости. Краткий текст новости. Краткий текст новости. </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Читать далее</a>
+                {% for news in news_list %}
+                    <div class="col s12 m6 l4 news-block">
+                        <div class="card">
+                            <div class="card-image">
+                                <a href="/news/?id={{ news.id }}"><img src="{{ news.image.url }}"></a>
+                                <span class="card-title">{{ news.title }}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>{{ news.short_desc }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="/news/?id={{ news.id }}">Читать далее</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col s12 m6 l4 news-block">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'img/1-2.jpg' %}">
-                            <span class="card-title">Название новости</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Краткий текст новости. Краткий текст новости. Краткий текст новости.
-                                Краткий текст новости. Краткий текст новости. Краткий текст новости. </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6 l4 news-block">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'img/1-2.jpg' %}">
-                            <span class="card-title">Название новости</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Краткий текст новости. Краткий текст новости. Краткий текст новости.
-                                Краткий текст новости. Краткий текст новости. Краткий текст новости. </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6 l4 news-block">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'img/1-2.jpg' %}">
-                            <span class="card-title">Название новости</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Краткий текст новости. Краткий текст новости. Краткий текст новости.
-                                Краткий текст новости. Краткий текст новости. Краткий текст новости. </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6 l4 news-block">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'img/1-2.jpg' %}">
-                            <span class="card-title">Название новости</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Краткий текст новости. Краткий текст новости. Краткий текст новости.
-                                Краткий текст новости. Краткий текст новости. Краткий текст новости. </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="col s12 no-padding">
                 <ul class="pagination center">
