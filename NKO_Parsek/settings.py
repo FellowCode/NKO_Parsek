@@ -161,7 +161,7 @@ CKEDITOR_CONFIGS = {
                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
             {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
             {'name': 'insert',
-             'items': ['Image', 'Matimage', 'Video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
+             'items': ['Matimage', 'Video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']},
             '/',
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
@@ -194,6 +194,9 @@ CKEDITOR_CONFIGS = {
             'dialog',
             'dialogui',
             'elementspath'
+        ]),
+        'removePlugins': ','.join([
+            'image',
         ]),
     }
 }
