@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'NKO_Parsek.middleware.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'NKO_Parsek.urls'

@@ -2,6 +2,17 @@ from django.shortcuts import render, redirect
 from News.utils import get_category_list
 from News.models import News
 from .utils import pagination
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def set_timezone(request):
+    if request.POST:
+        if 'tz_info' in request.POST:
+            tz_info = request.POST['tz_info']
+            request.session['tz_info'] = tz_info
+        return redirect('/')
+    else:
+        return redirect('/')
 
 def index(request):
     NEWS_BY_PAGE = 12

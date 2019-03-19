@@ -6,6 +6,9 @@ import json
 from .utils import get_category_list
 from Main.utils import pagination
 import math
+from django.utils.timezone import localtime, get_current_timezone
+import pytz
+
 
 def news(request):
     if request.GET:
