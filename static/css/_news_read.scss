@@ -1,4 +1,95 @@
-%image{
+.news-read{
+  margin-top: 30px;
+  padding-bottom: 4vh !important;
+  .body{
+    div.image-inline {
+      display: block;
+      position: relative;
+      float: left;
+      width: 100%;
+    }
+    .material-placeholder{
+      float:left;
+      &.img-small{
+        width: 33.33333333333333%;
+        &.i-left{
+          margin-left: 0;
+        }
+        &.i-center{
+          margin-left: 33.33333333333333% !important;
+        }
+        &.i-right{
+          margin-left: 66.66666666666666%;
+        }
+      }
+      &.img-medium{
+        width: 50%;
+        &.i-left{
+          margin-left: 0;
+        }
+        &.i-center{
+          margin-left: 25% !important;
+        }
+        &.i-right{
+          margin-left: 50%;
+        }
+      }
+      &.img-large{
+        width: 100%;
+        margin-left: 0;
+      }
+      img{
+          width:100%;
+      }
+      &.float{
+        margin-left: 0 !important;
+        &.i-left{
+          float: left;
+        }
+        &.i-right{
+          float: right;
+        }
+      }
+    }
+  }
+
+  .title{
+    margin: 20px 0 0 0;
+  }
+  @media only screen and (max-width: $m_px) {
+    .title{
+      margin-top: 10px;
+      font-size: 32px;
+      font-weight: 500;
+    }
+    h6.edit{
+      font-size: 1rem;
+    }
+    .body {
+      h1 {
+        margin-top: 15px;
+        margin-bottom: 12px;
+        font-size: 32px;
+        font-weight: 500;
+      }
+      h2 {
+        margin-top: 12px;
+        margin-bottom: 9px;
+        font-size: 28px;
+        font-weight: 500;
+      }
+      h3 {
+        margin-top: 10px;
+        margin-bottom: 7px;
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.cke_editable {
+  padding: 10px;
   img{
     float: none;
     &.img-small {
@@ -62,48 +153,6 @@
       }
     }
   }
-}
-.news-read{
-  margin-top: 30px;
-  @extend %image;
-  .title{
-    margin: 20px 0 0 0;
-  }
-  @media only screen and (max-width: $m_px) {
-    .title{
-      margin-top: 10px;
-      font-size: 32px;
-      font-weight: 500;
-    }
-    h6.edit{
-      font-size: 1rem;
-    }
-    .body {
-      h1 {
-        margin-top: 15px;
-        margin-bottom: 12px;
-        font-size: 32px;
-        font-weight: 500;
-      }
-      h2 {
-        margin-top: 12px;
-        margin-bottom: 9px;
-        font-size: 28px;
-        font-weight: 500;
-      }
-      h3 {
-        margin-top: 10px;
-        margin-bottom: 7px;
-        font-size: 24px;
-        font-weight: 500;
-      }
-    }
-  }
-}
-
-.cke_editable {
-  padding: 10px;
-  @extend %image;
   @media only screen and (max-width: $m_px) {
       h1 {
         margin-top: 15px;
