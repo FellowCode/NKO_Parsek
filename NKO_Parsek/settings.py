@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
+    'sorl.thumbnail',
 
     'Main',
     'News',

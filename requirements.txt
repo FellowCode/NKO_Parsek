@@ -5,3 +5,5 @@ django-imagekit
 Pillow-PIL
 django-cleanup
 django-ckeditor
+pytz
+sorl-thumbnail

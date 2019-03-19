@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load main_extras %}
+{% load thumbnail %}
+
 
 {% block title %}НКО Парсек{% endblock %}
 
@@ -24,7 +26,9 @@
                     <div class="col s12 m6 l4 news-block">
                         <div class="card">
                             <div class="card-image">
-                                <a href="/news/?id={{ news.id }}"><img src="{{ news.image.url }}"></a>
+                                {% thumbnail news.image "400x200" crop="center" as im %}
+                                    <a href="/news/?id={{ news.id }}"><img src="{{ im.url }}"></a>
+                                {% endthumbnail %}
                                 <span class="card-title">{{ news.title }}</span>
                             </div>
                             <div class="card-content">
