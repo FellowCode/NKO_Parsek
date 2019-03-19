@@ -12,16 +12,18 @@ CKEDITOR.dialog.add( 'MatimageDialog', function( editor ) {
                 this.imageElement = element;
                 this.editMode = true;
                 this.setupContent(this.imageElement);
+                this.getElement().getFirst().find('.cke_dialog_title').getItem(0).setText('Редактировать картинку')
                 //this.setLabel('Редактировать картинку');
+            }
+            else
+            {
+                this.getElement().getFirst().find('.cke_dialog_title').getItem(0).setText('Добавить картинку')
             }
         },
         contents: [
             {
                 id: 'tab-basic',
                 label: 'Добавить картинку',
-                setup: function(element){
-                    this.setLabel('Редактировать картинку')
-                },
                 elements: [
                     {
                         type: 'hbox',
@@ -35,7 +37,6 @@ CKEDITOR.dialog.add( 'MatimageDialog', function( editor ) {
                                 validate: CKEDITOR.dialog.validate.notEmpty("Заполните поле ссылки"),
                                 setup: function(element) {
                                     this.setValue( element.getAttribute( 'src' ) );
-                                    this.get
                                 },
                             },
                             {
@@ -82,19 +83,28 @@ CKEDITOR.dialog.add( 'MatimageDialog', function( editor ) {
                         'default': 'center',
                         setup: function (element) {
                             var classes = element.getAttribute('class');
-                            var i = classes.indexOf('left');
-                            var align = 'left';
-                            if (i === -1) {
-                                i = classes.indexOf('right');
-                                if (i === -1)
-                                    align = 'center';
-                                else
-                                    align = 'right';
-                            }
+                            var i = classes.indexOf('i-');
+                            var align = classes.slice(i);
+                            i = align.indexOf(' ');
+                            if (i === -1)
+                                align = align.slice(2);
+                            else
+                                align = align.slice(2, i);
+                            console.log(align);
                             this.setValue(align)
                         }
+                    },
+                    {
+                        type: 'checkbox',
+                        id: 'float',
+                        label: 'Обтекание текстом',
+                        setup: function (element) {
+                            var classes = element.getAttribute('class');
+                            var i = classes.indexOf('float');
+                            if (i !== -1)
+                                this.setValue('checked');
+                        }
                     }
-
                 ]
             },
             {
@@ -126,12 +136,10 @@ CKEDITOR.dialog.add( 'MatimageDialog', function( editor ) {
             //img.addClass('responsive-img');
             img.setAttribute('src', dialog.getValueOf('tab-basic', 'url'));
 
-            var size = dialog.getValueOf('tab-basic', 'size');
-            size = size === 'large' ? '100%' : size;
-            size = size === 'small' ? '25%' : '50%';
 
-            img.setAttribute('style', 'width:' + size + ';height:auto;padding 5px;');
-            img.addClass(dialog.getValueOf('tab-basic', 'align'));
+            img.addClass('i-'+dialog.getValueOf('tab-basic', 'align'));
+            if (dialog.getValueOf('tab-basic', 'float'))
+                img.addClass('float');
             img.addClass('img-'+dialog.getValueOf('tab-basic', 'size'));
             img.addClass('materialboxed');
 

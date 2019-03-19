@@ -1,5 +1,71 @@
+%image{
+  img{
+    float: none;
+    &.img-small {
+      width: 33.3333333333%;
+      &.i-left{
+        margin-left: 0;
+        margin-right: 66.666666666%;
+        &.float{
+          margin-right: 0;
+          float: left;
+        }
+      }
+      &.i-center{
+        margin-left: 33.3333333333%;
+        margin-right: 33.3333333333%;
+      }
+      &.i-right{
+        margin-left: 66.6666666666%;
+        &.float{
+          margin-left: 0;
+          float: right;
+        }
+      }
+    }
+    &.img-medium{
+      width: 50%;
+      &.i-left{
+        margin-left: 0;
+        margin-right: 50%;
+        &.float{
+          margin-right: 0;
+          float: left;
+        }
+      }
+      &.i-center{
+        margin-left: 25%;
+        margin-right: 25%;
+      }
+      &.i-right{
+        margin-left: 50%;
+        margin-right: 0;
+        &.float{
+          margin-left: 0;
+          float: right;
+        }
+      }
+    }
+    &.img-large{
+      width: 100%;
+      &.i-left{
+        margin-left: 0;
+        margin-right: 0;
+      }
+      &.i-center{
+        margin-left: 0;
+        margin-right: 0;
+      }
+      &.i-right{
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
 .news-read{
   margin-top: 30px;
+  @extend %image;
   .title{
     margin: 20px 0 0 0;
   }
@@ -37,6 +103,7 @@
 
 .cke_editable {
   padding: 10px;
+  @extend %image;
   @media only screen and (max-width: $m_px) {
       h1 {
         margin-top: 15px;
