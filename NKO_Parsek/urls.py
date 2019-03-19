@@ -14,14 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from . import settings
 from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
+
+favicon_view = RedirectView.as_view(url='/static/img/favicon.ico', permanent=True)
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
     path('news/', include('News.urls')),
+    re_path(r'^favicon\.ico$', favicon_view),
     path('', include('Main.urls')),
 ]
 
