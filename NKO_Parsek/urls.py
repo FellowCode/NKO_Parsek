@@ -18,8 +18,12 @@ from django.urls import path, include, re_path
 from . import settings
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
+from Main import views
 
 favicon_view = RedirectView.as_view(url='/static/img/favicon.ico', permanent=True)
+
+handler404 = views.handler404
+handler500 = views.handler500
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),

@@ -3,6 +3,9 @@
   height: auto;
 }
 .news-block .card {
+    .card-image{
+      border-bottom: 1px solid lightgrey;
+    }
     .card-title {
       font-weight: 500;
       //контур с помощью 4 теней

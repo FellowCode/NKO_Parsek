@@ -29,7 +29,7 @@
                                 {% thumbnail news.image "400x200" crop="center" as im %}
                                     <a href="/news/?id={{ news.id }}"><img src="{{ im.url }}"></a>
                                 {% endthumbnail %}
-                                <span class="card-title">{{ news.title }}</span>
+                                <a href="/news/?id={{ news.id }}"><span class="card-title">{{ news.title }}</span></a>
                             </div>
                             <div class="card-content">
                                 <p>{{ news.short_desc }}</p>

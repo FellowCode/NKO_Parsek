@@ -32,6 +32,17 @@ ul.only-icons{
     .nav-wrapper .container{
         width:99%;
     }
+    ul.only-icons{
+    &>li{
+        &>a{
+            width: 54px;
+            height: 56px;
+            &>i {
+                margin: 0;
+            }
+        }
+    }
+}
 }
 
 @media only screen and (max-width: $l_px) {

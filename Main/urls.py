@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, set_timezone
+from .views import *
 
 urlpatterns = [
     path('set-timezone/', set_timezone),

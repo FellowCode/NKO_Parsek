@@ -14,12 +14,9 @@ $xl_px: 1200px;
 .main-bg-color{
   background: $main_bg_color !important;
 }
-
 .main-color{
   color: $main_color !important;
 }
-
-
 .container {
     width: 90%;
 }
@@ -27,6 +24,18 @@ $xl_px: 1200px;
 .no-padding{
   padding: 0 !important;
 }
+.full-width{
+  width: 100%;
+}
+
+.row .col.error{
+  margin-top: 30px;
+  padding: 0 20px 4vh 20px;
+  .btn{
+    margin-top: 20px;
+  }
+}
+
 
 @media only screen and (min-width: 1500px){
     .container {

@@ -4,6 +4,11 @@ from News.models import News
 from .utils import pagination
 from django.views.decorators.csrf import csrf_exempt
 
+def handler404(request):
+    return render(request, '404.html', status=404)
+def handler500(request):
+    return render(request, '500.html', status=500)
+
 @csrf_exempt
 def set_timezone(request):
     if request.POST:
